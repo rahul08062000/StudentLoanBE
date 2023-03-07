@@ -22,6 +22,7 @@ public class EmailServiceImpl implements EmailService {
  @Autowired private JavaMailSender javaMailSender;
 
  @Value("${spring.mail.username}") private String sender;
+ @Value("${spring.mail.password}") private String pass;
 
  // Method 1
  // To send a simple email
@@ -30,7 +31,8 @@ public class EmailServiceImpl implements EmailService {
 
      // Try block to check for exceptions
      try {
-
+System.out.println("this is mail password:"+pass);
+    	 
          // Creating a simple mail message
          SimpleMailMessage mailMessage
              = new SimpleMailMessage();
