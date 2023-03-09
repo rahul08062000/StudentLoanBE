@@ -24,13 +24,13 @@ public class EmailController {
 
  // Sending a simple Email
  @PostMapping("/sendMail")
- public String
+ public ResponseEntity<Boolean>
  sendMail(@RequestBody EmailDetails details)
  {
-     String status
+     boolean mailsentflag
          = emailService.sendSimpleMail(details);
 
-     return status;
+     return new ResponseEntity<>(mailsentflag,HttpStatus.OK);
  }
  
  @GetMapping("/hello")
