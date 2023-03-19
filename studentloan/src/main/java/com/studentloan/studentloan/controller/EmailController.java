@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.studentloan.studentloan.dto.EmailDetails;
+import com.studentloan.studentloan.dto.OtpDto;
 import com.studentloan.studentloan.service.EmailService;
 
 	
@@ -33,13 +34,17 @@ public class EmailController {
      return new ResponseEntity<>(mailsentflag,HttpStatus.OK);
  }
  
- @GetMapping("/hello")
- public ResponseEntity<String>
- hello()
+ @PostMapping("/validate-otp")
+ public ResponseEntity<Boolean>
+ sendMail(@RequestBody OtpDto otpdto)
  {
-    
-     return new ResponseEntity<>("Hello World!", HttpStatus.OK);
+     boolean mailsentflag
+         = emailService.vaildateOtp(otpdto);
+
+     return new ResponseEntity<>(mailsentflag,HttpStatus.OK);
  }
+ 
+
 
 
 }

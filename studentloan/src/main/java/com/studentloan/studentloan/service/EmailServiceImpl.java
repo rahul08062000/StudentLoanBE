@@ -10,6 +10,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import com.studentloan.studentloan.dto.EmailDetails;
+import com.studentloan.studentloan.dto.OtpDto;
 
 
 
@@ -55,5 +56,11 @@ System.out.println("this is mail password:"+pass);
      }
  }
 
+ public boolean vaildateOtp(OtpDto otpdto) {
+	 
+	 System.out.println("email: "+otpdto.getEmailaddress()+ " otp: "+otpdto.getOtp());
+	 
+	 return true;
+ }
  
 }
